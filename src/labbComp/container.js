@@ -6,6 +6,7 @@ import {ChatSidan} from './chatSidan.js';
 export class Container extends Component{
   constructor(props){
     super(props)
+    // vi ska kontrollera detta state från någon prop som ska komma från förmulär resultat
     this.state = {userLogged: true}
   }
   render(){

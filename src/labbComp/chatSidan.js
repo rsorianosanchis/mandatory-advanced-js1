@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import {anslutMsgInitial,allMsgInitial,newMsgInitial} from './inputSocketKontroll.js';
 //
 import {ChatRutan} from './chatRutan.js';
-
-
-
+//
 export class ChatSidan extends Component{
   render(){
     return <div>
