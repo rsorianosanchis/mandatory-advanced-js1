@@ -3,9 +3,10 @@ let socket = require('socket.io-client')('http://ec2-13-53-66-202.eu-north-1.com
 //
 let arrMessages = [];
 let newMessage;
-let stringAnslut = '';
+let stringAnslut;
 
-socket.on('connect', function(){
+socket.on('connect', function(msg){
+  console.log(msg);
   stringAnslut = 'Du är anslut i chat rummet'
   console.log(stringAnslut);
 });

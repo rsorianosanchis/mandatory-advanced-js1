@@ -5,6 +5,9 @@ import {ChatRutan} from './chatRutan.js';
 //
 export class ChatSidan extends Component{
   render(){
+    console.log(anslutMsgInitial);
+    console.log(allMsgInitial);
+    console.log(newMsgInitial);
     return <div>
         <p>Välkomen till chatt</p>
         <div>

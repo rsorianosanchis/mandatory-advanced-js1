@@ -7,34 +7,32 @@ export class ChatRutan extends Component {
     super(props)
     console.log(this.props.newMsg);
     this.state = {
-      id: this.props.newMsg.id,
-      username: this.props.newMsg.username,
-      content: this.props.newMsg.content
+      newId: this.props.newMsg.id,
+      newUsername: this.props.newMsg.username,
+      newContent: this.props.newMsg.content
     };
   }
   //const test = this.props.allMsg;
 
   render(){
-    function historiskMsg (arr){
-      for (let ele of arr) {
-        console.log({ele});
-        return(
-          <li key= {ele.id}>
-            <p><strong>User:</strong>{ele.username}</p>
-            <p>{ele.content}</p>
-          </li>
-        )
-      }
-    };
+    console.log(this.props.anslutMsg);
+    console.log(this.props.newMsg);
+    console.log(this.props.allMsg);
+    //
     return (
       <div>
         <h1>Välkommen till rummet </h1>
         <h2>{this.props.anslutMsg}</h2>
         <ul>
-          {historiskMsg(this.props.allMsg)}
-          <li key={this.state.id}>
-            <h3>{this.state.username}</h3>
-            <p>{this.state.content}</p>
+          {this.props.allMsg.map((item)=>{
+            return<li key= {item.id}>
+              <p><strong>User:</strong>{item.username}</p>
+              <p>{item.content}</p>
+            </li>
+          })}
+          <li key={this.state.newId}>
+            <h3>{this.state.newUsername}</h3>
+            <p>{this.state.newContent}</p>
           </li>
         </ul>
       </div>
