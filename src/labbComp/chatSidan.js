@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import {anslutMsgInitial,allMsgInitial,newMsgInitial} from './inputSocketKontroll.js';
 //
 import {ChatRutan} from './chatRutan.js';
 import {SkrivRutan} from './skrivRutan.js';
