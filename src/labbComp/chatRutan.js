@@ -1,47 +1,54 @@
 import React,{Component} from 'react';
+import io from 'socket.io-client';
 //
-import {ChatSidan} from './chatSidan.js';
+//import {ChatSidan} from './chatSidan.js';
 
 export class ChatRutan extends Component {
   constructor(props){
     super(props)
-    console.log(this.props.newMsg);
     this.state = {
-      newId: this.props.newMsg.id,
-      newUsername: this.props.newMsg.username,
-      newContent: this.props.newMsg.content
+      newMsg : {},
+      allMsg: [],
     };
   }
-  //const test = this.props.allMsg;
-
+  componentDidMount(){
+    this.socket = io('http://ec2-13-53-66-202.eu-north-1.compute.amazonaws.com:3000');
+    this.socket.on('messages', (messages) => {
+      console.log(messages);
+      this.setState({ allMsg: messages });
+    });
+    this.socket.on('new_message', (newMsg) => {
+      console.log(newMsg);
+      this.setState({ newMsg: newMsg });
+      this.state.allMsg.push(newMsg);
+    });
+  }
+  componentWillUnmount() {
+    this.socket.disconnect();
+  }
   render(){
-    console.log(this.props.anslutMsg);
-    console.log(this.props.newMsg);
-    console.log(this.props.allMsg);
     //
+    console.log(this.state.newMsg.username)
     return (
       <div>
         <h1>Välkommen till rummet </h1>
         <h2>{this.props.anslutMsg}</h2>
         <ul>
-          {this.props.allMsg.map((item)=>{
-            return<li key= {item.id}>
-              <p><strong>User:</strong>{item.username}</p>
-              <p>{item.content}</p>
-            </li>
-          })}
-          <li key={this.state.newId}>
-            <h3>{this.state.newUsername}</h3>
-            <p>{this.state.newContent}</p>
-          </li>
+          {this.state.allMsg.map((msg)=>{
+            return<li key= {msg.id}>
+              <p><strong>User:</strong>{msg.username}</p>
+              <p>{msg.content}</p>
+            </li>}
+            )
+          }
+          {this.state.newMsg.id
+            ?<li key= {this.state.newMsg.id}>
+              <p><strong>User:</strong>{this.state.newMsg.username}</p>
+              <p>{this.state.newMsg.content}</p>
+              </li>
+            :<p></p>}
         </ul>
       </div>
     )
   }
-}
-//
-ChatRutan.defaultProps = {
-  anslutMsg: 'no connected',
-  newMsg: {id: '0000',username: 'Herr Default Noop',content: 'Detta medelandet kommer från ChatRutan.defaultProps,då, man kan mistänka inget medellandet har kommit eller något är fel '},
-  allMsg: {id:'xx',username: 'U',content: '####'}
 }
