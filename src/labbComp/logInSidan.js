@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 export class LogInSidan extends Component{
+  constructor(props){
+    super(props)
+  }
+  //
+  goIn = (e)=>{
+    console.log(e.nativeEvent);
+  }
+  //
   render(){
     return (
       <div>
@@ -14,9 +22,9 @@ export class LogInSidan extends Component{
             minLength = {1}
             maxLength = {12}
           />
-          <button>Gå In i Chatt</button>
+        <button onClick={this.goIn}>Gå In i Chatt</button>
         </form>
     </div>
-  )
+    )
   }
 }

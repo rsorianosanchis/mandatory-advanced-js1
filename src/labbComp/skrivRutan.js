@@ -1,6 +1,13 @@
 import React,{Component} from 'react';
 
 export class SkrivRutan extends Component {
+  constructor(props){
+    super(props)
+  }
+  skicka0 = (e)=>{
+    console.log(e.nativeEvent);
+    alert('hah');
+  }
   render(){
     return(
       <div>
@@ -10,9 +17,8 @@ export class SkrivRutan extends Component {
             type='text'
             size= {30}
             placeholder='Skriv ditt meddelande här..'
-
           />
-          <button>Skicka</button>
+        <button onClick={this.skicka}>Skicka</button>
         </form>
       </div>
     )

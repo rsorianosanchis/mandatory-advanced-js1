@@ -7,7 +7,7 @@ export class Container extends Component{
   constructor(props){
     super(props)
     // vi ska kontrollera detta state från någon prop som ska komma från förmulär resultat
-    this.state = {userLogged: false}
+    this.state = {userLogged: this.props.usrLogged}
   }
   render(){
     return (
@@ -18,4 +18,7 @@ export class Container extends Component{
       </div>
     )
   }
+}
+Container.defaultProps = {
+  usrLogged: false
 }
