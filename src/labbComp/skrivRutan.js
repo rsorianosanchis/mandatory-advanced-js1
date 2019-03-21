@@ -18,15 +18,15 @@ export class SkrivRutan extends Component {
     //får message att skicka efter submit
     const submitData = this.state;
     this.skickaMyMessage(submitData);
-
   }
+  //
   skickaMyMessage = (dataIn)=>{
     this.socket = io('http://ec2-13-53-66-202.eu-north-1.compute.amazonaws.com:3000');
     this.socket.emit('message',{
     username: {dataIn},
     content: dataIn.myMessage
     });
-
+    console.log('send');
   }
   //
   render(){

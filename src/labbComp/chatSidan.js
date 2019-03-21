@@ -18,9 +18,7 @@ export class ChatSidan extends Component{
         <p>Välkomen till chatt</p>
         <div>
           <ChatRutan/>
-          <SkrivRutan
-            nickname={nickname}
-          />
+          <SkrivRutan nickname={nickname}/>
         </div>
         <button onClick={this.slutChat}>Sluta Chatta</button>
       </Container>
