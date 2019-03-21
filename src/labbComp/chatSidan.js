@@ -9,12 +9,15 @@ export class ChatSidan extends Component{
     console.log(e.nativeEvent);
     //kör tillbaka till login sidan
   }
-    render(){
+  render(){
+    //const nickname = this.props.nickname
     return <div>
         <p>Välkomen till chatt</p>
         <div>
           <ChatRutan/>
-          <SkrivRutan/>
+          <SkrivRutan
+
+          />
         </div>
         <button onClick={this.slutChat}>Sluta Chatta</button>
     </div>
