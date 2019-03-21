@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
 
 export class LogInSidan extends Component{
-  constructor(props){
-    super(props)
+  constructor(){
+    super()
+    this.state = {nickName: ''}
   }
-  //
-  goIn = (e)=>{
-    e.preventDefault();
-    const nick = document.getElementById('nickname').value;
-    //kontrollera nick validation, regex...
-    //tillåt rendera chatsidan och tar bort login sidan
-    console.log({nick});
+  submitData = (e)=>{
+    console.log(this.state);
+    //får user data (nickname) efter submit
+    //kanske kan vi anropar rendera chat från här
+    const submitData = this.state;
   }
-  //
   render(){
     return (
       <div>
-        <form>
-          <label htmlFor='nickname'>Skriv Nickname</label>
-          <input
-            id = 'nickname'
-            type='text'
-            size= {15}
-            placeholder='Nickname..'
-            pattern='[a-zA-Z0-9, ,-,_]{1,12}'
-            minLength = {1}
-            maxLength = {12}
-
-          />
-        <button onClick={this.goIn}>Gå In i Chatt</button>
+        <form onSubmit={this.submitData}>
+          <p>
+            <label htmlFor='nickname'>Skriv Nickname</label>
+            <input
+              id = 'nickname'
+              type ='text'
+              size = {15}
+              placeholder ='Nickname..'
+              pattern ='[a-zA-Z0-9, ,-,_]{1,12}'
+              onChange = {e=>{this.setState({nickName: e.target.value})}}
+            />
+        </p>
+        <button>Gå In i Chatt</button>
         </form>
     </div>
     )

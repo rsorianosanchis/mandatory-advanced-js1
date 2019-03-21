@@ -7,6 +7,7 @@ export class ChatSidan extends Component{
   slutChat = (e)=>{
     e.preventDefault();
     console.log(e.nativeEvent);
+    //kör tillbaka till login sidan
   }
     render(){
     return <div>

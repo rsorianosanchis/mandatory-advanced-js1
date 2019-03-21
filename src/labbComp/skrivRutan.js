@@ -3,30 +3,32 @@ import React,{Component} from 'react';
 export class SkrivRutan extends Component {
   constructor(props){
     super(props)
+    this.state = {myMessage: ''}
   }
-  skicka = (e) =>{
-    e.preventDefault();
-    const usrMessage = document.getElementById('usrMsg').value;
-    //kontrollera message validation
-    //skicka till socket
-    console.log({usrMessage});
+  submitData = (e)=>{
 
+    console.log(this.state);
+    console.log('hej hej test');
+    //får message att skicka efter submit
+    const submitData = this.state;
   }
   render(){
     return(
       <div>
-        <h3>User Field</h3>
-        <form>
+        <h3>Meddela</h3>
+        <form onSubmit={this.submitData}>
+          <label>Rutan för meddelande</label>
           <textarea
             id = 'usrMsg'
             type='text'
-            cols = '20'
-            rows = '2'
-            size= {30}
+            cols = {30}
+            rows = {10}
+            size= {200}
             placeholder='Skriv ditt meddelande här..'
             style = {{border: '1px solid black', }}
+            onChange = {e=>this.setState({myMessage: e.target.value})}
           />
-        <button onClick={this.skicka}>Skicka</button>
+          <button>Skicka</button>
         </form>
       </div>
     )
