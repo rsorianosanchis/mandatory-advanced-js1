@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 //import './App.css';
 //import utvecklare filer
-import {Container} from './labbComp/container.js';
-// i atribuute ContainerusrLogged = {true} hur ska jag kontrollera sidan render ?
+import {LogInSidan} from './labbComp/logInSidan.js';
+//
 class App extends Component {
   render() {
-
     return (
-
-      <Container
-        className='App'
-      />
-    );
+      <div className='App'>
+        <LogInSidan/>
+      </div>
+    )
   }
 }
 export default App;
