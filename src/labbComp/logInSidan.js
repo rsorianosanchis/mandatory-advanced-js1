@@ -6,7 +6,11 @@ export class LogInSidan extends Component{
   }
   //
   goIn = (e)=>{
-    console.log(e.nativeEvent);
+    e.preventDefault();
+    const nick = document.getElementById('nickname').value;
+    //kontrollera nick validation, regex...
+    //tillåt rendera chatsidan och tar bort login sidan
+    console.log({nick});
   }
   //
   render(){
@@ -21,6 +25,7 @@ export class LogInSidan extends Component{
             placeholder='Nickname..'
             minLength = {1}
             maxLength = {12}
+            
           />
         <button onClick={this.goIn}>Gå In i Chatt</button>
         </form>
