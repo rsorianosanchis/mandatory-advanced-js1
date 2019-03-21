@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {ChatSidan} from './chatSidan.js';
 import {Container} from '../App.js';
+
 /*********************************************/
 
 export class LogInSidan extends Component{
@@ -8,19 +9,15 @@ export class LogInSidan extends Component{
     super(props)
     this.state = {
       nickName: '',
-      nickKorrekt: false
+      nickKorrekt: false,
     }
   }
   //
   kontrollNick = ()=>{
-    //if this.state.nickName .test regel specifikation regex
-    // console.log(e.nativeEvent);
-    // console.log(this.state.nickName);
     if(this.state.nickName !== ''){
       this.setState({nickKorrekt: true})
       console.log('borde nickKorrekt bli i true  :(');
       console.log(this.state);
-
     }else{
       alert('nickname går inte, skriv igen');
     }
@@ -28,6 +25,7 @@ export class LogInSidan extends Component{
   //
   render(){
     return (
+      this.state.nickKorrekt === false?
       <Container>
         <form onSubmit={this.kontrollNick}>
           <p>
@@ -37,7 +35,7 @@ export class LogInSidan extends Component{
               type ='text'
               size = {15}
               placeholder ='Nickname..'
-              pattern ='[a-z,A-Z,0-9, ,-,_]{1,12}'
+              pattern ='[a-z,A-Z,0-9-_ ]{1,12}'
               value = {this.state.nickName}
               onChange = {(e)=>{this.setState({nickName: e.target.value})}}
               required
@@ -45,12 +43,10 @@ export class LogInSidan extends Component{
           </p>
           <button>Gå In i Chatt</button>
         </form>
-        {
-        this.state.nickKorrekt === true
-        ? <ChatSidan/>
-        : <p> titta på console,måste ladda/behålla i login igen</p>
-        }
       </Container>
+      :<ChatSidan
+      usrNick= {this.state.nickName}
+      />
     )
   }
 }

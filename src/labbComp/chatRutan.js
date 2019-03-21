@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import io from 'socket.io-client';
-//
-//import {ChatSidan} from './chatSidan.js';
 import {Container} from '../App.js';
+
+/*********************************************/
 
 export class ChatRutan extends Component {
   constructor(props){
@@ -42,7 +42,6 @@ export class ChatRutan extends Component {
                   <p>{msg.content}</p>
                 </li>)
               }
-  
             )
           }
           {this.state.newMsg.id

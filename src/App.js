@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
-//import './App.css';
-//import utvecklare filer
 import {LogInSidan} from './labbComp/logInSidan.js';
-//
+
+/*********************************************/
+
 export class Container extends Component{
   render(){
     return(
@@ -16,9 +15,9 @@ export class Container extends Component{
 class App extends Component {
   render() {
     return (
-      <Container className='App'>
+      <div className='App'>
         <LogInSidan/>
-      </Container>
+      </div>
     )
   }
 }
