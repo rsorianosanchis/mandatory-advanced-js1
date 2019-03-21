@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import io from 'socket.io-client';
+import {Container} from '../App.js';
 //
 
 export class SkrivRutan extends Component {
@@ -25,7 +26,7 @@ export class SkrivRutan extends Component {
   //
   render(){
     return(
-      <div>
+      <Container>
         <h3>Meddela</h3>
         <form onSubmit={this.submitData}>
           <label>Rutan för meddelande</label>
@@ -41,7 +42,7 @@ export class SkrivRutan extends Component {
           />
           <button>Skicka</button>
         </form>
-      </div>
+      </Container>
     )
   }
 }

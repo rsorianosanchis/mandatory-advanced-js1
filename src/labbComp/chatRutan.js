@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import io from 'socket.io-client';
 //
 //import {ChatSidan} from './chatSidan.js';
+import {Container} from '../App.js';
 
 export class ChatRutan extends Component {
   constructor(props){
@@ -30,15 +31,18 @@ export class ChatRutan extends Component {
     //
     console.log(this.state.newMsg.username)
     return (
-      <div>
+      <Container>
         <h1>Välkommen till rummet </h1>
         <h2>{this.props.anslutMsg}</h2>
         <ul>
           {this.state.allMsg.map((msg)=>{
-            return<li key= {msg.id}>
-              <p><strong>User:</strong>{msg.username}</p>
-              <p>{msg.content}</p>
-            </li>}
+              return(
+                <li key= {msg.id}>
+                  <p><strong>User:</strong>{msg.username}</p>
+                  <p>{msg.content}</p>
+                </li>)
+              }
+  
             )
           }
           {this.state.newMsg.id
@@ -48,7 +52,7 @@ export class ChatRutan extends Component {
               </li>
             :<p></p>}
         </ul>
-      </div>
+      </Container>
     )
   }
 }

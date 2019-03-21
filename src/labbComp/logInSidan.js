@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {ChatSidan} from './chatSidan.js'
+import {ChatSidan} from './chatSidan.js';
+import {Container} from '../App.js';
 /*********************************************/
 
 export class LogInSidan extends Component{
@@ -27,7 +28,7 @@ export class LogInSidan extends Component{
   //
   render(){
     return (
-      <div>
+      <Container>
         <form onSubmit={this.kontrollNick}>
           <p>
             <label htmlFor='nickname'>Skriv Nickname</label>
@@ -45,16 +46,11 @@ export class LogInSidan extends Component{
           <button>Gå In i Chatt</button>
         </form>
         {
-          //this.state.nickKorrekt === ''
-        this.state.nickName !== ''
-        ?<ChatSidan/>
-        :<p> titta på console,måste ladda/behålla i login igen</p>
+        this.state.nickKorrekt === true
+        ? <ChatSidan/>
+        : <p> titta på console,måste ladda/behålla i login igen</p>
         }
-      </div>
+      </Container>
     )
   }
 }
-// LogInSidan.defaultProps = {
-//   initialValue: false
-// }
-//
