@@ -23,9 +23,10 @@ export class LogInSidan extends Component{
             type='text'
             size= {15}
             placeholder='Nickname..'
+            pattern='[a-zA-Z0-9, ,-,_]{1,12}'
             minLength = {1}
             maxLength = {12}
-            
+
           />
         <button onClick={this.goIn}>Gå In i Chatt</button>
         </form>
