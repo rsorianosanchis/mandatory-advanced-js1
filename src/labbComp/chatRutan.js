@@ -3,6 +3,16 @@ import io from 'socket.io-client';
 import {Container} from '../App.js';
 
 /*********************************************/
+class RenderMsg extends Component {
+  render(){
+    return(
+      <li key= {this.props.nyckel}>
+        <h4>{this.props.user}</h4>
+        <p>{this.props.content}</p>
+      </li>
+    )
+  }
+}
 
 export class ChatRutan extends Component {
   constructor(props){
@@ -38,20 +48,22 @@ export class ChatRutan extends Component {
         <h2>{this.props.anslutMsg}</h2>
         <ul>
           {this.state.allMsg.map((msg)=>{
-              return(
-                <li key= {msg.id}>
-                  <p><strong>User:</strong>{msg.username}</p>
-                  <p>{msg.content}</p>
-                </li>)
+              return <RenderMsg
+                nyckel = {msg.id}
+                user = {msg.username}
+                content = {msg.content}
+              />
               }
             )
           }
+
           {this.state.newM.id
-            ?<li key= {this.state.newM.id}>
-              <p><strong>User:</strong>{this.state.newM.username}</p>
-              <p>{this.state.newM.content}</p>
-              </li>
-            :<p></p>}
+            ?<RenderMsg
+              nyckel = {this.state.newM.id}
+              user = {this.state.newM.username}
+              content = {this.state.newM.content}
+            />
+            :null}
         </ul>
       </Container>
     )
