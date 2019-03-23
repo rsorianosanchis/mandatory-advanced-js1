@@ -8,7 +8,7 @@ export class ChatRutan extends Component {
   constructor(props){
     super(props)
     this.state = {
-      newMsg : {},
+      newM : {},
       allMsg: [],
     };
   }
@@ -21,7 +21,7 @@ export class ChatRutan extends Component {
     });
     this.socket.on('new_message', (newMsg) => {
       console.log(newMsg);
-      this.setState({ newMsg: newMsg });
+      this.setState({ newM: newMsg });
       this.state.allMsg.push(newMsg);
     });
   }
@@ -31,7 +31,7 @@ export class ChatRutan extends Component {
   }
   //
   render(){
-    console.log(this.state.newMsg.username)
+    console.log(this.state.newM.username)
     return (
       <Container>
         <h1>Välkommen till rummet </h1>
@@ -46,10 +46,10 @@ export class ChatRutan extends Component {
               }
             )
           }
-          {this.state.newMsg.id
-            ?<li key= {this.state.newMsg.id}>
-              <p><strong>User:</strong>{this.state.newMsg.username}</p>
-              <p>{this.state.newMsg.content}</p>
+          {this.state.newM.id
+            ?<li key= {this.state.newM.id}>
+              <p><strong>User:</strong>{this.state.newM.username}</p>
+              <p>{this.state.newM.content}</p>
               </li>
             :<p></p>}
         </ul>

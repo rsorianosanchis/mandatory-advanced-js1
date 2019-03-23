@@ -13,7 +13,8 @@ export class LogInSidan extends Component{
     }
   }
   //
-  kontrollNick = ()=>{
+  kontrollNick = (e)=>{
+    this.setState({nickName: e.target.value});
     if(this.state.nickName !== ''){
       this.setState({nickKorrekt: true})
       console.log('borde nickKorrekt bli i true  :(');
@@ -36,8 +37,7 @@ export class LogInSidan extends Component{
               size = {15}
               placeholder ='Nickname..'
               pattern ='[a-z,A-Z,0-9-_ ]{1,12}'
-              value = {this.state.nickName}
-              onChange = {(e)=>{this.setState({nickName: e.target.value})}}
+              onChange = {(e)=>{this.setState({nickName: e.target.value})}              }
               required
             />
           </p>
@@ -45,8 +45,8 @@ export class LogInSidan extends Component{
         </form>
       </Container>
       :<ChatSidan
-      usrNick= {this.state.nickName}
-      />
+        usrNick= {this.state.nickName}
+      ><h1>tar bort , {this.state.nickName}</h1></ChatSidan>
     )
   }
 }

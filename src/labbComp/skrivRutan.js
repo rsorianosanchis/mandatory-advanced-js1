@@ -8,28 +8,25 @@ export class SkrivRutan extends Component {
   constructor(props){
     super(props)
     this.state = {
-      nick: this.props.nickname,
       myMessage: ''
     }
   }
   //
   submitData = (e)=>{
     console.log(this.state);
+    //debugger;
     //får message att skicka efter submit
-    const submitData = this.state;
-    this.skickaMyMessage(submitData);
-  }
-  //
-  skickaMyMessage = (dataIn)=>{
     this.socket = io('http://ec2-13-53-66-202.eu-north-1.compute.amazonaws.com:3000');
+    console.log(this.props.nicknamn,this.state.myMessage);
     this.socket.emit('message',{
-    username: {dataIn},
-    content: dataIn.myMessage
+    username: this.props.nicknamn,
+    content: this.state.myMessage
     });
     console.log('send');
   }
   //
   render(){
+    console.log(this.props.nicknamn,'hitta debugger2');
     return(
       <Container>
         <h3>Meddela</h3>

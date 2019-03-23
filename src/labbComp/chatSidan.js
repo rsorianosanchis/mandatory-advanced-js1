@@ -12,13 +12,16 @@ export class ChatSidan extends Component{
     //kör tillbaka till login sidan,hur?,måste jag fundera på lyfecycle
   }
   render(){
-    const nickname = this.props.usrNick;
+    console.log(this.props.usrNick,'hitta debugger');
     return (
       <Container>
         <p>Välkomen till chatt</p>
+        <h2>tar bort,props /*this.props.usrNick*/ kommer inte  {this.props.usrNick}</h2>
         <div>
           <ChatRutan/>
-          <SkrivRutan nickname={nickname}/>
+          <SkrivRutan
+            nicknamn={this.props.usrNick}
+          />
         </div>
         <button onClick={this.slutChat}>Sluta Chatta</button>
       </Container>
