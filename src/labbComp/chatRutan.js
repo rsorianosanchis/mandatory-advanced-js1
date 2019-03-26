@@ -3,24 +3,6 @@ import io from 'socket.io-client';
 import {Container} from '../App.js';
 
 /*********************************************/
-class RenderMsg extends Component {
-  render(){
-    return (
-
-      <li
-          key= {this.props.nyckel}
-          style= {{border: '1px solid black',
-                  padding: 2,
-                  margin: 1,
-                  background: 'green',
-                  }}
-      >
-        <h4>{this.props.user}</h4>
-        <p>{this.props.children}</p>
-      </li>
-    )
-  }
-}
 
 export class ChatRutan extends Component {
   constructor(props){
@@ -49,7 +31,6 @@ export class ChatRutan extends Component {
   }
   //
   render(){
-    console.log(this.state.newM.username)
     return (
       <Container>
         <h1>Välkommen till rummet </h1>
@@ -73,7 +54,7 @@ export class ChatRutan extends Component {
             )
           }
           {
-            this.state.newM.id === 'undefined'?
+            this.state.newM.id !== undefined?
             <li
               key= {this.state.newM.id}
               style= {{border: '1px solid black',
