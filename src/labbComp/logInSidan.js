@@ -12,9 +12,7 @@ export class LogInSidan extends Component{
       nickKorrekt: false,
     }
   }
-  //
   kontrollNick = (e)=>{
-    this.setState({nickName: e.target.value});
     if(this.state.nickName !== ''){
       this.setState({nickKorrekt: true})
       console.log('borde nickKorrekt bli i true  :(');
@@ -23,7 +21,10 @@ export class LogInSidan extends Component{
       alert('nickname går inte, skriv igen');
     }
   }
-  //
+  // componentWillUnmount() {
+  //   this.onChange.disconnect();
+  //   this.onSubmit.disconnect();
+  // }
   render(){
     return (
       this.state.nickKorrekt === false?
@@ -46,7 +47,7 @@ export class LogInSidan extends Component{
       </Container>
       :<ChatSidan
         usrNick= {this.state.nickName}
-      ><h1>tar bort , {this.state.nickName}</h1></ChatSidan>
+      />
     )
   }
 }
