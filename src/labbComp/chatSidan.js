@@ -13,8 +13,6 @@ export class ChatSidan extends Component{
   slutChat = (e)=>{
     e.preventDefault();
     console.log(e.nativeEvent);
-
-    //pending att göra
   }
   render(){
     return (
