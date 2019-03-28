@@ -3,7 +3,7 @@ import {ChatSidan} from './chatSidan.js';
 import {Container} from '../App.js';
 /*********************************************/
 
- class LogInSidan extends Component{
+ export class LogInSidan extends Component{
   constructor(props){
     super(props)
     this.state = {
@@ -20,7 +20,8 @@ import {Container} from '../App.js';
     if(this.state.nickName !== '' ){
       const regex = /^[\s\wÅÄÖåäö-]+$/;
       if (regex.test(this.state.nickName)){
-        this.setState({nickKorrekt: true})
+        this.setState({nickKorrekt: true,iChatten: true})
+
       }else{
         alert('nickname går inte, skriv igen');
         this.setState({nickKorrekt: false})
@@ -31,22 +32,18 @@ import {Container} from '../App.js';
     }
   }
 
-  // componentWillUnmount() {
-  //
-  //   this.onSubmit.disconnect();
-  // }
-  // _iChatten = ()=>{
-  //   this.setState({iChatten: true})
-  // }
-  // _slutaChatten = ()=>{
-  //   this.setState({iChatten: false})
-  // }
+  _goIChatten=()=>{
+    this.setState({iChatten: true})}
+
+  _slutaChatten=()=>{
+    this.setState({iChatten: false})
+  }
 
 
 
   render() {
     return(
-        this.state.nickKorrekt === false  ?
+        this.state.nickKorrekt === false || this.state.iChatten === false?
         <Container>
         <form onSubmit={this.kontrollNick}>
           <p>
@@ -65,7 +62,6 @@ import {Container} from '../App.js';
           <button>Gå In i Chatt</button>
         </form>
       </Container>
-
       :<ChatSidan
         usrNick= {this.state.nickName}
         slutaChat = {this._slutaChatten}
@@ -74,5 +70,3 @@ import {Container} from '../App.js';
   );
   }
 }
-
-export default LogInSidan;
