@@ -13,6 +13,8 @@ export class SkrivRutan extends Component {
   }
   //
   submitData = (e)=>{
+    e.preventDefault();
+
     console.log(this.state);
     //debugger;
     //får message att skicka efter submit
@@ -22,7 +24,12 @@ export class SkrivRutan extends Component {
     username: this.props.nicknamn,
     content: this.state.myMessage
     });
+    const textarea = document.querySelector('#usrMsg');
+    textarea.value = '';
     console.log('send');
+  }
+  componentWillUnmount() {
+
   }
   //
   render(){

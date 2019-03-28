@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import io from 'socket.io-client';
 import {Container} from '../App.js';
+import Emoji from 'react-emojione';
+import Linkify from 'react-linkify';
+
 
 /*********************************************/
 
@@ -47,7 +50,7 @@ export class ChatRutan extends Component {
                             }}
                   >
                     <h4>{msg.username}</h4>
-                    <p>{msg.content}</p>
+                    <p><Linkify><Emoji>{msg.content}</Emoji></Linkify></p>
                   </li>
                 )
               }
@@ -64,7 +67,7 @@ export class ChatRutan extends Component {
                       }}
             >
               <h4>{this.state.newM.username}</h4>
-              <p>{this.state.newM.content}</p>
+              <p><Linkify><Emoji>{this.state.newM.content}</Emoji></Linkify></p>
             </li>
             :null
           }

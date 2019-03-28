@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {LogInSidan} from './labbComp/logInSidan.js';
+import LogInSidan from './labbComp/logInSidan.js';
+
 
 /*********************************************/
 

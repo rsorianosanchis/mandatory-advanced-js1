@@ -13,6 +13,7 @@ export class ChatSidan extends Component{
   slutChat = (e)=>{
     e.preventDefault();
     console.log(e.nativeEvent);
+
     //pending att göra
   }
   render(){
@@ -26,7 +27,7 @@ export class ChatSidan extends Component{
             nicknamn={this.state.nickTransfer}
           />
         </div>
-        <button onClick={this.slutChat}>Sluta Chatta</button>
+        <button onClick={this.props.slutaChat}>Sluta Chatta</button>
       </Container>
     )
   }
